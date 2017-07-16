@@ -258,13 +258,8 @@ def setLevel(value) {
   log.debug "setLevel >> value: $value"
   def valueaux = value as Integer
   def level = Math.max(Math.min(valueaux, 99), 0)
-  if (level > 0) {
-    sendEvent(name: "switch", value: "on")
-  } else {
-    sendEvent(name: "switch", value: "off")
-  }
-  sendEvent(name: "level", value: level, unit: "%")
-v1}
+  setLevel(value, 0)
+}
 
 def setLevel(value, duration) {
   log.debug "setLevel >> value: $value, duration: $duration"
